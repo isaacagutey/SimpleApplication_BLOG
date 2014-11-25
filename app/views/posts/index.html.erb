@@ -1,0 +1,37 @@
+
+
+<p><center><%= image_tag "t2t.png"%></center></p>
+<br><br><h3 align="center">T2T posts</h3>
+
+<table cellspacing="15" cellpadding="10" bgcolor="#A9A9A9" align="center">
+  <thead>
+  <tr align="center">
+    <th colspan="2">Title</th>
+    <th colspan="3">Body</th>
+    <th>Isaac</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% # iterating through a @post
+     @posts.each do |post|
+  %>
+      <tr align="center">
+        <td colspan="2"><%= post.title %></td>
+        <td colspan="3"><%= post.body %></td>
+      </tr>
+      <tr align="center">
+        <td clospan="5"><%= link_to 'Show|', post %><%= link_to 'Edit|', edit_post_path(post) %><%= link_to 'DEL', post, method: :delete, data: { confirm: 'Are you sure to delete the post?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<center><%= link_to 'New Post', new_post_path %></center>
+
+
